@@ -31,7 +31,6 @@ namespace BookDatabase.Data.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Authors")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("BookName")
@@ -39,49 +38,42 @@ namespace BookDatabase.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Comments")
-                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("DateAdded")
+                    b.Property<DateTime?>("DateAdded")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("DatePublished")
+                    b.Property<DateTime?>("DatePublished")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("DateRead")
+                    b.Property<DateTime?>("DateRead")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Genres")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ISBN")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<byte[]>("ImageData")
-                        .IsRequired()
                         .HasColumnType("bytea");
 
                     b.Property<string>("ImageType")
-                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("IsRead")
+                    b.Property<bool?>("IsRead")
                         .HasColumnType("boolean");
 
                     b.Property<string>("Language")
-                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("NumberOfPages")
+                    b.Property<int?>("NumberOfPages")
                         .HasColumnType("integer");
 
                     b.Property<string>("Publisher")
-                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("Rating")
+                    b.Property<int?>("Rating")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");

@@ -1,4 +1,6 @@
 using BookDatabase.Data;
+using BookDatabase.Services;
+using BookDatabase.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 
@@ -7,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+builder.Services.AddScoped<IImageService, BasicImageService>();
 
 var app = builder.Build();
 
